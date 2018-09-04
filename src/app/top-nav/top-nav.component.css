@@ -1,0 +1,38 @@
+#top-nav{
+    margin-left:250px;
+    width:100%;
+    background: whitesmoke;
+    z-index:2;
+    height: 70px;
+    position: fixed;
+    top:0;
+
+}
+
+#search-user-input{
+    position: inherit;
+    right:20px;
+    top: 18px;
+    border-radius: 5px;
+    border:none;
+    outline:none;
+    height:36px;
+    width:200px;
+    font-size:larger;
+    background: whitesmoke;
+    font-family: 'Noto Sans', sans-serif;
+}
+
+#search-user-input::placeholder{
+    color:darkgray;
+}
+#search-user-input-icon{
+    color: darkgray;
+    position: inherit;
+    right: 230px;
+    top:29px;
+}
+#search-user-input-icon-copy{
+    width:18px;
+    height:18px;
+}

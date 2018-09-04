@@ -1,0 +1,108 @@
+<app-sport-selector (sportChanged)="focusOnFirstElementInForm()"></app-sport-selector>
+<div id="flex-wrapper">
+
+  <div id="left-collumn">
+    <div class="widget">
+      <div class="widget-header">
+        <span><i class="fas fa-highlighter widget-icon"></i> Add Game</span>
+      </div>
+      <form [formGroup]="addGameForm" class="widget-content" (ngSubmit)="buttonClicked_AddGame(addGameForm)">
+        <div class="form-header">
+          Home Team
+        </div>
+        <div>
+          <input formControlName="homeTeamName" #firstField class="form-element" placeHolder="Home Team" >
+        </div>
+        <label class="error-message" *ngIf="homeTeamName.invalid && homeTeamName.value.length !== 0">
+          {{homeTeamName.errors.lengthIncorrect}}
+        </label>
+        <div class="form-header">
+          Away Team
+        </div>
+        <div>
+          <input formControlName="awayTeamName" class="form-element" placeHolder="Away Team">
+        </div>
+        <label class="error-message" *ngIf="awayTeamName.invalid && awayTeamName.value.length !== 0">
+          {{awayTeamName.errors.lengthIncorrect}}
+        </label>
+        <div class="form-header">
+          Spread
+        </div>
+        <div>
+          <input formControlName="spread" class="form-element" placeHolder="Spread">
+        </div>
+        <label class="error-message" *ngIf="spread.invalid && spread.value.length !== 0">
+          {{spread.errors.error}}
+        </label>
+        <div class="form-header">
+          Game Date
+        </div>
+        <div>
+          <input formControlName="gameStartDate" class="form-element" placeHolder="Game Date">
+        </div>
+        <label class="error-message" *ngIf="gameStartDate.invalid && gameStartDate.value.length !== 0">
+          {{gameStartDate.errors.formatError}}
+        </label>
+        <div class="form-header">
+          Game Time
+        </div>
+        <div>
+          <input formControlName="gameStartTime" name="gameStartTime" (keyup.enter)="buttonClicked_AddGame(addGameForm)" class="form-element" placeHolder="Game Time">
+        </div>
+        <label class="error-message" *ngIf="gameStartTime.invalid && gameStartTime.value.length !== 0">
+          {{gameStartTime.errors.formatError}}
+        </label>
+        <button type="submit" class="form-submit">Add Game Now</button>
+      </form>
+    </div>
+  </div>
+
+  <div id="right-collumn">
+    <div class="widget">
+      <div class="widget-header">
+        <span>
+            <span><i class="fas fa-award widget-icon"></i>Current Contest</span>
+        </span>
+      </div>
+      <form [formGroup]="createContestForm" class="widget-content" (ngSubmit)="buttonClicked_createContest(createContestForm)">
+        <div class="form-header">
+          Contest Date
+        </div>
+        <div>
+          <input formControlName="contestDate" class="form-element" placeHolder="Game Time">
+        </div>
+        <label class="error-message" *ngIf="contestDate.invalid && contestDate.value.length !== 0">
+          {{contestDate.errors.formatError}}
+        </label>
+        <div class="committed-game-container" *ngFor="let gameWithID of contestGames; let i = index">
+
+          <div class="committed-game-team">
+            <div class="committed-game-row-1">
+              <span class="committed-game-team-name">
+                {{getString_GameCommitted(gameWithID)}}
+              </span>
+              <span class="committed-game-icon">
+                <i class="fas fa-highlighter"></i>
+              </span>
+            </div>
+
+            <div class="committed-game-row-2">
+              <span class="committed-game-team-time">
+                {{commonService.getString_GameDateAndTimeString(gameWithID)}}
+              </span>
+              <span class="committed-game-spread">
+                {{gameWithID.data.spread}}
+              </span>
+              <span class="committed-game-icon">
+                <i class="fas fa-trash-alt"></i>
+              </span>
+            </div>
+          </div>
+
+        </div>
+
+        <button type="submit" class="form-submit">Submit Contest Now</button>
+      </form>
+    </div>
+  </div>
+</div>

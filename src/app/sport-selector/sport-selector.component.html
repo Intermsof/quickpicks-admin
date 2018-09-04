@@ -1,0 +1,11 @@
+<div id="sport-picker">
+    <div (click)="pick('NFL')" [ngClass]="{'sport': true, 'sport-picked': selection === 0}">
+      NFL
+    </div>
+    <div (click)="pick('NBA')" [ngClass]="{'sport': true, 'sport-picked': selection === 1}">
+      NBA
+    </div>
+    <div (click)="pick('MLB')" [ngClass]="{'sport': true, 'sport-picked': selection === 2}">
+      MLB
+    </div>
+  </div>

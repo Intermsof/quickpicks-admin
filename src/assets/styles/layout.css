@@ -1,0 +1,58 @@
+.container{
+    padding: 20px;
+    font-family: 'Noto Sans', sans-serif;
+}
+
+.widget{
+    border-radius: 5px;
+    box-shadow: 0px 0px 10px 1px lightgray;
+}
+
+.table-header{
+    display: flex;
+    color:white;
+    background: #6ebe45;
+    border-top-right-radius: 5px;
+    border-top-left-radius: 5px;
+    padding: 15px;
+    height: 20px;
+    line-height:20px;
+}
+
+.table-header-element{
+    width: 100px;
+    flex-grow:1;
+}
+
+.table-header-time{
+    width: 100px;
+    flex-grow: 2;
+}
+
+.table-collumn{
+    width: 100px;
+    flex-grow: 1;
+}
+
+.table-collumn-time{
+    width: 100px;
+    flex-grow: 2;
+}
+
+.table-edit-icon{
+    float:right;
+}
+
+.table-score-copy{
+    margin-left: 15px;
+    font-size:large;
+}
+.table-team-name-copy{
+    width: 35px;
+    display: inline-block;
+}
+.table-header-drop-down{
+    float:right;
+    width: 20px;
+    height: 20px;
+}

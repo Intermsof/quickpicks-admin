@@ -1,0 +1,67 @@
+<app-sport-selector (sportChanged)="getGames()"></app-sport-selector>
+<div class="container">
+  <div class="widget">
+    <div class="table-header">
+      <div class="table-header-element">
+        Home
+      </div>
+      <div class="table-header-element">
+        Away
+      </div>
+      <div class="table-header-element">
+        Quarter
+      </div>
+      <div class="table-header-time">
+        Time
+      </div>
+    </div>
+
+    <div (click)="rowClicked(i)" (mouseenter)="rowHovered(i)" (mouseleave)="rowUnhovered(i)" 
+        [ngStyle]="{
+          'display': 'flex',
+          'padding': '15px',
+          'cursor': rowShouldShowEditCursor(i)? 'url(\'../../assets/edit-cursor.png\'), auto' : 'default',
+          'background': rowShouldSetBackgroundGainsboro(i)? 'gainsboro' : 'white',
+          'height': '30px',
+          'line-height': '30px'
+        }" 
+        *ngFor="let row of rows; let i = index">
+
+      <div class="table-collumn">
+        <div class="table-team-name-copy">{{row.gameWithID.data.homeTeamName}}</div> 
+        <span class="table-score-copy" [hidden]="row.isSelected">{{row.gameWithID.data.homeTeamScore}}</span>
+        <input class="score-input" [hidden]="!row.isSelected" [(ngModel)]="row.gameWithID.data.homeTeamScore" placeholder="score">
+      </div>
+      
+      <div class="table-collumn">
+        <div class="table-team-name-copy">{{row.gameWithID.data.awayTeamName}}</div> 
+        <span class="table-score-copy" [hidden]="row.isSelected">{{row.gameWithID.data.awayTeamScore}}</span>
+        <input class="score-input" [hidden]="!row.isSelected" [(ngModel)]="row.gameWithID.data.awayTeamScore" placeholder="score">
+      </div>
+      
+      <div class="table-collumn">
+        <span [hidden]="row.isSelected">{{row.gameWithID.data.gameState}}</span>
+        <select [hidden]="!row.isSelected" [(ngModel)]="row.gameWithID.data.gameState" class="score-input">
+          <option>0</option>
+          <option>1</option>
+          <option>2</option>
+          <option>3</option>
+          <option>4</option>
+          <option>5</option>
+        </select>
+      </div>
+      
+      <div class="table-collumn-time">
+        {{commonService.getString_GameDateAndTimeString(row.gameWithID)}}
+        <div class="table-edit-icon">
+          <div [hidden]="row.isSelected">
+            <i class="fas fa-edit"></i>
+          </div>
+          <button (click)="submitClicked(i)" [hidden]="!row.isSelected" class="submit-button">Submit</button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+  
+</div>

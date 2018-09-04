@@ -1,0 +1,48 @@
+#table-header-drop-down-icon{
+    width: 40px;
+    height: 40px;
+    position: relative;
+    top: -11px; /*To offset the padding of the table header */
+}
+#table-header-drop-down-icon:hover{
+    cursor: pointer;
+}
+
+#table-contest-date-picker-wrapper{
+    width: 0px;
+    height: 0px;
+    overflow: visible;
+}
+
+#table-contest-date-picker{
+    width: 200px;
+    max-height: 50vh;
+    background: whitesmoke;
+    overflow-y: scroll;
+    border: 1px solid lightgray;
+    position: relative;
+    right: 200px;
+    top: 25px;
+}
+
+.table-contest-date{
+    color: black;
+    width: 170px;
+    height: 20px;
+    padding: 15px;
+    text-align: center;
+    border-bottom: 1px solid lightgray;
+}
+#table-header-drop-down-button{
+    color:white;
+    background: #6ebe45;
+    border: none;
+    outline: none;
+}
+
+.table-content-row{
+    display: flex;
+    padding: 15px;
+    height: 30px;
+    line-height: 30px;
+}

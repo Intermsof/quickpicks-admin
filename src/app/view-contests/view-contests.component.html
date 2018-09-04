@@ -1,0 +1,54 @@
+<app-sport-selector (sportChanged)="getContests()"></app-sport-selector>
+<div class="container">
+  <div class="widget">
+    <div class="table-header">
+      <div class="table-header-element">
+        Home
+      </div>
+      <div class="table-header-element">
+        Away
+      </div>
+      <div class="table-header-element">
+        Quarter
+      </div>
+      <div class="table-header-time">
+        Time
+      </div>
+      <button (click)="toggleDatePicker()" id="table-header-drop-down-button">
+        <i id="table-header-drop-down-icon" class="fas fa-caret-down"></i>
+      </button>
+      <div id="table-contest-date-picker-wrapper" *ngIf="showDatePicker">
+          <div id="table-contest-date-picker">
+            <div class="table-contest-date" *ngFor="let contest of contests">
+              {{commonService.dateWithMonth(contest.date)}}
+            </div>
+          </div>
+        </div>
+    </div>
+
+
+
+    <div class="table-content-row" *ngFor="let game of games">
+
+      <div class="table-collumn">
+        <div class="table-team-name-copy">{{game.homeTeamName}}</div> 
+        <span class="table-score-copy" >{{game.homeTeamScore}}</span>
+      </div>
+  
+      <div class="table-collumn">
+        <div class="table-team-name-copy">{{game.awayTeamName}}</div> 
+        <span class="table-score-copy">{{game.awayTeamScore}}</span>
+      </div>
+  
+      <div class="table-collumn">
+        <span>{{game.gameState}}</span>
+      </div>
+  
+      <div class="table-collumn-time">
+        {{commonService.getString_GameDateAndTimeString({id:null,data:game})}}
+      </div>
+
+    </div>
+  
+  </div>
+</div>
