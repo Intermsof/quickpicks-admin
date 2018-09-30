@@ -1,0 +1,41 @@
+<div class="container">
+  <div class="widget">
+    <div class="table-header">
+      <div class="table-header-element">
+        Amount requested
+      </div>
+      <div class="table-header-element">
+        PayPal Email
+      </div>
+      <div class="table-header-element">
+        Quickpicks Email
+      </div>
+    </div>
+
+    <div [ngStyle]="{
+          'display': 'flex',
+          'padding': '15px',
+          'height': '30px',
+          'line-height': '30px'
+        }" *ngFor="let request of requests; let i = index">
+
+      <div class="table-collumn">
+        {{request.amount}}
+        <button (click)="fulfill(i)" class="fulfill-button">Fulfill</button>
+        <button (click)="reject(i)" class="fulfill-button">Reject</button>
+      </div>
+      <div class="table-collumn">
+        {{request.paypalEmail}}
+      </div>
+
+      <div class="table-collumn">
+        {{request.qpEmail}}
+        <div [ngStyle]="{'float':'right'}">
+        </div>
+      </div>
+
+
+
+    </div>
+  </div>
+</div>

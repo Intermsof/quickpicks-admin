@@ -23,7 +23,9 @@ import { environment } from '../environments/environment' //firebase field insid
 /* ---------------------------- SERVICES ------------------------------ */
 import { CommonService } from './services/common.service';
 import { FireService } from './services/fire.service';
-import { TOASTR_TOKEN, TOASTR } from './services/toastr.service'; //Toastr injection token
+import { TOASTR_TOKEN, TOASTR } from './services/toastr.service';
+import { AdustPrizesComponent } from './adust-prizes/adust-prizes.component';
+import { PrizeRequestsComponent } from './prize-requests/prize-requests.component'; //Toastr injection token
 
 
 @NgModule({
@@ -34,7 +36,9 @@ import { TOASTR_TOKEN, TOASTR } from './services/toastr.service'; //Toastr injec
     CreateContestComponent,
     UpdateGamesComponent,
     ViewContestsComponent,
-    SportSelectorComponent
+    SportSelectorComponent,
+    AdustPrizesComponent,
+    PrizeRequestsComponent
   ],
   imports: [
     AngularFireModule.initializeApp(environment.firebase),

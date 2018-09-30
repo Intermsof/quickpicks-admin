@@ -152,7 +152,8 @@ export class CreateContestComponent implements OnInit {
     }
     let contest : ContestStaging = {
       games: this.contestGames,
-      date: this.contestDate.value
+      date: this.contestDate.value,
+      progression: 0
     };
     this.fire.createContest(contest);
     this.contestGames = [] as [GameWithID];

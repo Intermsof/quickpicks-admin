@@ -1,0 +1,53 @@
+<app-sport-selector></app-sport-selector>
+<div class="container">
+  <div class="widget">
+    <div class="table-header">
+      <div class="my-collumn-small">
+        #
+      </div>
+      <div class="my-collumn">
+        From
+      </div>
+      <div class="my-collumn">
+        To
+      </div>
+      <div class="my-collumn">
+        Coins
+      </div>
+    </div>
+
+    <div
+        [ngStyle]="{
+          'display': 'flex',
+          'padding': '15px',
+          'height': '30px',
+          'line-height': '30px'
+        }" 
+        *ngFor="let prize of prizes; let i = index">
+<!--  -->
+
+      <div class="my-collumn-small">
+        {{i + 1}}.
+      </div>
+      <div class="my-collumn">
+        <span>{{i === 0? 0 : prizes[i - 1].end}}</span>
+      </div>
+      
+      <div class="my-collumn">
+        <input [(ngModel)]="prize.end" placeholder="to">
+      </div>
+
+      <div class="my-collumn">
+        <input [(ngModel)]="prize.award" placeholder="coins">
+      </div>
+
+    </div>
+
+    <div id="add" (click)="addPrize()">
+      +
+    </div>
+    <div id="submit" (click)="savePrize()">
+      Submit
+    </div>
+  </div>
+</div>

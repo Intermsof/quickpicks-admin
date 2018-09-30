@@ -21,7 +21,7 @@ export interface GameWithID{
 }
 
 export interface Sport {
-    awards: [Award],
+    awards: Award[],
     currentContest: string,
     lastContest: string,
     entries: number,
@@ -36,10 +36,37 @@ export interface Award {
 
 export interface Contest{
     date: string,
-    games: [string]
+    games: [string],
+    progression: number
 }
 
 export interface ContestStaging {
     date: string,
-    games: [GameWithID]
+    games: [GameWithID],
+    progression: number
+}
+
+export interface User {
+    NFLPicks: String,
+    NFLEntered: boolean,
+    NFLPosition: number,
+    coins: number,
+    email: string,
+    prevCoins: number,
+    username: string 
+}
+
+export interface ContestEntry {
+    contest: String,
+    date: String,
+    lastGameScore: number,
+    picks: [number],
+    position: number
+}
+
+export interface Request {
+    amount: number,
+    paypalEmail: String,
+    qpEmail: String,
+    status: number
 }
